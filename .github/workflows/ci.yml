@@ -21,6 +21,7 @@ env:
 
 jobs:
   lint-toml-files:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -36,6 +37,7 @@ jobs:
         run: git ls-files | grep Cargo.toml$ | xargs --verbose -n 1 cargo-toml-lint
 
   build:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
 
     strategy:
@@ -82,6 +84,7 @@ jobs:
           cargo test
 
   contributing-book:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
 
     strategy:
